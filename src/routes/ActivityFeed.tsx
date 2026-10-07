@@ -1,7 +1,7 @@
 import { createFileRoute, Navigate } from "@tanstack/react-router";
 import { AppShell } from "@/components/edc/AppShell";
-import { NeuralBackground } from "@/components/edc/NeuralBackground";
-import { ScrollReveal } from "@/components/edc/ScrollReveal";
+// import { NeuralBackground } from "@/components/edc/NeuralBackground";
+// import { ScrollReveal } from "@/components/edc/ScrollReveal";
 import { useUser } from "@/lib/edc/store";
 import { useEffect, useState } from "react";
 import {
@@ -102,7 +102,7 @@ function ActivityFeedPage() {
 
         {/* Hero */}
         <section className="relative overflow-hidden rounded-3xl border border-border bg-card p-6 md:p-8">
-          <NeuralBackground className="opacity-50" />
+          {/* <NeuralBackground className="opacity-50" /> */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-accent/10 pointer-events-none" />
           <div className="relative z-10">
             <div className="flex items-center gap-2 mb-1.5">
@@ -165,7 +165,7 @@ function ActivityFeedPage() {
 </div>
 
         {/* Live feed */}
-        <ScrollReveal>
+        {/* <ScrollReveal> */}
           <section className="bg-card border border-border rounded-2xl overflow-hidden">
             <div className="flex items-center justify-between px-6 py-4 border-b border-border">
               <div className="flex items-center gap-2">
@@ -208,7 +208,7 @@ function ActivityFeedPage() {
   Live community activity from founders across the platform
 </div>
           </section>
-        </ScrollReveal>
+        {/* </ScrollReveal> */}
 
       </div>
     </AppShell>
