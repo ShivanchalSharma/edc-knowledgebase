@@ -9,7 +9,6 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as TrackerRouteImport } from './routes/tracker'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as SavedRouteImport } from './routes/saved'
 import { Route as RaiseRouteImport } from './routes/raise'
@@ -30,11 +29,6 @@ import { Route as StartupTimelineRouteImport } from './routes/StartupTimeline'
 import { Route as ActivityFeedRouteImport } from './routes/ActivityFeed'
 import { Route as IndexRouteImport } from './routes/index'
 
-const TrackerRoute = TrackerRouteImport.update({
-  id: '/tracker',
-  path: '/tracker',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SettingsRoute = SettingsRouteImport.update({
   id: '/settings',
   path: '/settings',
@@ -151,7 +145,6 @@ export interface FileRoutesByFullPath {
   '/raise': typeof RaiseRoute
   '/saved': typeof SavedRoute
   '/settings': typeof SettingsRoute
-  '/tracker': typeof TrackerRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -173,7 +166,6 @@ export interface FileRoutesByTo {
   '/raise': typeof RaiseRoute
   '/saved': typeof SavedRoute
   '/settings': typeof SettingsRoute
-  '/tracker': typeof TrackerRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -196,7 +188,6 @@ export interface FileRoutesById {
   '/raise': typeof RaiseRoute
   '/saved': typeof SavedRoute
   '/settings': typeof SettingsRoute
-  '/tracker': typeof TrackerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -220,7 +211,6 @@ export interface FileRouteTypes {
     | '/raise'
     | '/saved'
     | '/settings'
-    | '/tracker'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -242,7 +232,6 @@ export interface FileRouteTypes {
     | '/raise'
     | '/saved'
     | '/settings'
-    | '/tracker'
   id:
     | '__root__'
     | '/'
@@ -264,7 +253,6 @@ export interface FileRouteTypes {
     | '/raise'
     | '/saved'
     | '/settings'
-    | '/tracker'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -287,18 +275,10 @@ export interface RootRouteChildren {
   RaiseRoute: typeof RaiseRoute
   SavedRoute: typeof SavedRoute
   SettingsRoute: typeof SettingsRoute
-  TrackerRoute: typeof TrackerRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/tracker': {
-      id: '/tracker'
-      path: '/tracker'
-      fullPath: '/tracker'
-      preLoaderRoute: typeof TrackerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/settings': {
       id: '/settings'
       path: '/settings'
@@ -455,7 +435,6 @@ const rootRouteChildren: RootRouteChildren = {
   RaiseRoute: RaiseRoute,
   SavedRoute: SavedRoute,
   SettingsRoute: SettingsRoute,
-  TrackerRoute: TrackerRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

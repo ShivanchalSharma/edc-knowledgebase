@@ -29,10 +29,14 @@ type NavGroup = { label: string | null; highlight?: boolean; items: NavItem[] };
 
 const navGroups: NavGroup[] = [
   {
-    label: null, // no header — this is the primary, always-visible group
+    label: null,
     highlight: true,
     items: [
-      { to: "/dashboard", label: "Home", icon: Home },
+      {
+        to: "/dashboard",
+        label: "Home",
+        icon: Home,
+      },
       {
         to: "/discover",
         label: "DISCOVER",
@@ -52,12 +56,6 @@ const navGroups: NavGroup[] = [
         color: "text-emerald-400 group-hover:text-emerald-300",
       },
       {
-        to: "/bharat",
-        label: "BHARAT",
-        icon: MapPinned,
-        color: "text-orange-400 group-hover:text-orange-300",
-      },
-      {
         to: "/ai",
         label: "AI Advisor",
         icon: Sparkles,
@@ -65,21 +63,20 @@ const navGroups: NavGroup[] = [
       },
     ],
   },
-  {
-    label: "Journey tools",
-    items: [
-      { to: "/StartupTimeline", label: "Timeline", icon: GitBranch },
-      { to: "/tracker", label: "Tracker", icon: CheckSquare },
-      { to: "/mentors", label: "Mentors", icon: Mic },
-    ],
-  },
+
   {
     label: "More",
     items: [
-      { to: "/activityfeed", label: "Community Pulse", icon: Activity },
-      { to: "/saved", label: "Saved", icon: Bookmark },
-      { to: "/notifications", label: "Notifications", icon: Bell, badge: 3 },
-      { to: "/settings", label: "Settings", icon: SettingsIcon },
+      {
+        to: "/saved",
+        label: "Saved",
+        icon: Bookmark,
+      },
+      {
+        to: "/settings",
+        label: "Settings",
+        icon: SettingsIcon,
+      },
     ],
   },
 ];

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { AppShell } from "@/components/edc/AppShell";
-import { NeuralBackground } from "@/components/edc/NeuralBackground";
+// import { NeuralBackground } from "@/components/edc/NeuralBackground";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -49,7 +49,7 @@ function FeedbackPage() {
         
         {/* ── Hero Container ── */}
         <section className="relative overflow-hidden rounded-3xl border border-border bg-card p-6 md:p-8">
-          <NeuralBackground className="opacity-50" />
+          {/* <NeuralBackground className="opacity-50" /> */}
           <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/15 via-transparent to-accent/15 pointer-events-none" />
           
           <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">

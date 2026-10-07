@@ -1,8 +1,8 @@
 import { createFileRoute, Navigate } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { AppShell } from "@/components/edc/AppShell";
-import { NeuralBackground } from "@/components/edc/NeuralBackground";
-import { ScrollReveal } from "@/components/edc/ScrollReveal";
+// import { NeuralBackground } from "@/components/edc/NeuralBackground";
+// import { ScrollReveal } from "@/components/edc/ScrollReveal";
 import { Input } from "@/components/ui/input";
 import { useUser, useSaved } from "@/lib/edc/store";
 import {
@@ -280,7 +280,7 @@ function BuildPage() {
 
         {/* Hero */}
         <section className="relative overflow-hidden rounded-3xl border border-border bg-card p-6 md:p-8">
-          <NeuralBackground className="opacity-50" />
+          {/* <NeuralBackground className="opacity-50" /> */}
           <div className="absolute inset-0 bg-gradient-to-br from-accent/15 via-transparent to-primary/10 pointer-events-none" />
           <div className="relative z-10 flex flex-col lg:flex-row lg:items-center gap-6 justify-between">
             <div className="flex-1 min-w-0">
@@ -322,15 +322,15 @@ function BuildPage() {
         </section>
 
         {/* Weekly + Monthly build goals */}
-        <ScrollReveal>
+        {/* <ScrollReveal> */}
           <div className="grid md:grid-cols-2 gap-6">
             <GoalPanel title="This week's build goals" storageKey="edc:build:goals:week" fallback={DEFAULT_WEEK} />
             <GoalPanel title="This month's build goals" storageKey="edc:build:goals:month" fallback={DEFAULT_MONTH} />
           </div>
-        </ScrollReveal>
+        {/* </ScrollReveal> */}
 
         {/* MVP Essentials Checklist */}
-        <ScrollReveal>
+        {/* <ScrollReveal> */}
           <section className="bg-card border border-border rounded-2xl p-6">
             <div className="flex items-center justify-between mb-5">
               <div className="flex items-center gap-2.5">
@@ -365,10 +365,10 @@ function BuildPage() {
               })}
             </div>
           </section>
-        </ScrollReveal>
+        {/* </ScrollReveal> */}
 
         {/* Stack Recommender */}
-        <ScrollReveal>
+        {/* <ScrollReveal> */}
           <section className="bg-card border border-border rounded-2xl p-6">
             <div className="flex items-center gap-2.5 mb-2">
               <span className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center"><Layers className="w-4 h-4 text-primary" /></span>
@@ -401,10 +401,10 @@ function BuildPage() {
               </div>
             )}
           </section>
-        </ScrollReveal>
+        {/* </ScrollReveal> */}
 
         {/* Warm row */}
-        <ScrollReveal>
+        {/* <ScrollReveal> */}
           <div className="grid md:grid-cols-2 gap-5">
             <div className="rounded-2xl border border-accent/20 bg-gradient-to-br from-accent/12 to-primary/8 p-6 flex items-start gap-4">
               <span className="w-10 h-10 rounded-xl bg-accent/15 border border-accent/25 flex items-center justify-center shrink-0"><Flame className="w-5 h-5 text-accent" /></span>
@@ -422,10 +422,10 @@ function BuildPage() {
               </div>
             </div>
           </div>
-        </ScrollReveal>
+        {/* </ScrollReveal> */}
 
         {/* Browse */}
-        <ScrollReveal>
+        {/* <ScrollReveal> */}
           <section>
             <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
               <h2 className="text-xl font-bold">Competitions &amp; your toolkit</h2>
@@ -448,7 +448,7 @@ function BuildPage() {
               <p className="text-sm text-muted-foreground text-center py-12">No matches for "{query}".</p>
             )}
           </section>
-        </ScrollReveal>
+        {/* </ScrollReveal> */}
 
       </div>
     </AppShell>

@@ -1,31 +1,19 @@
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/source-serif-4";
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
-/*
- * Design system definition.
- *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
- *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
- */
-
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
   --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
+  --radius-2xl: calc(var(--radius) + 6px);
+  --radius-3xl: calc(var(--radius) + 8px);
+  --radius-4xl: calc(var(--radius) + 12px);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -62,71 +50,45 @@
 }
 
 :root {
-  /* eDC KnowledgeHub — dark navy default */
-  --radius: 0.75rem;
-  --background: oklch(0.16 0.05 270);
-  --foreground: oklch(0.97 0.01 260);
-  --card: oklch(0.21 0.05 268);
-  --card-foreground: oklch(0.97 0.01 260);
-  --popover: oklch(0.21 0.05 268);
-  --popover-foreground: oklch(0.97 0.01 260);
-  --primary: oklch(0.62 0.16 275);
-  --primary-foreground: oklch(0.98 0.01 260);
-  --secondary: oklch(0.27 0.05 268);
-  --secondary-foreground: oklch(0.97 0.01 260);
-  --muted: oklch(0.26 0.04 268);
-  --muted-foreground: oklch(0.72 0.03 260);
-  --accent: oklch(0.82 0.16 80);
-  --accent-foreground: oklch(0.18 0.04 270);
-  --destructive: oklch(0.62 0.22 25);
-  --destructive-foreground: oklch(0.98 0.01 260);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 14%);
-  --ring: oklch(0.62 0.16 275);
-  --chart-1: oklch(0.62 0.16 275);
-  --chart-2: oklch(0.82 0.16 80);
-  --chart-3: oklch(0.7 0.18 162);
-  --chart-4: oklch(0.65 0.22 25);
-  --chart-5: oklch(0.75 0.15 220);
-  --sidebar: oklch(0.19 0.05 270);
-  --sidebar-foreground: oklch(0.95 0.01 260);
-  --sidebar-primary: oklch(0.62 0.16 275);
-  --sidebar-primary-foreground: oklch(0.98 0.01 260);
-  --sidebar-accent: oklch(0.27 0.05 268);
-  --sidebar-accent-foreground: oklch(0.97 0.01 260);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.62 0.16 275);
+  /* knowledgebase — warm off-white, near-black text, one ink-blue accent */
+  --radius: 0.25rem;
+  --background: oklch(0.985 0.004 90);
+  --foreground: oklch(0.21 0 0);
+  --card: oklch(0.995 0.003 90);
+  --card-foreground: oklch(0.21 0 0);
+  --popover: oklch(0.995 0.003 90);
+  --popover-foreground: oklch(0.21 0 0);
+  --primary: oklch(0.34 0.07 255);
+  --primary-foreground: oklch(0.985 0.004 90);
+  --secondary: oklch(0.955 0.006 90);
+  --secondary-foreground: oklch(0.21 0 0);
+  --muted: oklch(0.955 0.006 90);
+  --muted-foreground: oklch(0.52 0 0);
+  --accent: oklch(0.34 0.07 255);
+  --accent-foreground: oklch(0.985 0.004 90);
+  --destructive: oklch(0.55 0.2 27);
+  --destructive-foreground: oklch(0.985 0.004 90);
+  --border: oklch(0.9 0.005 90);
+  --input: oklch(0.9 0.005 90);
+  --ring: oklch(0.34 0.07 255);
+  --chart-1: oklch(0.34 0.07 255);
+  --chart-2: oklch(0.55 0.08 160);
+  --chart-3: oklch(0.6 0.1 70);
+  --chart-4: oklch(0.55 0.15 27);
+  --chart-5: oklch(0.5 0.03 255);
+  --sidebar: oklch(0.97 0.005 90);
+  --sidebar-foreground: oklch(0.21 0 0);
+  --sidebar-primary: oklch(0.34 0.07 255);
+  --sidebar-primary-foreground: oklch(0.985 0.004 90);
+  --sidebar-accent: oklch(0.945 0.006 90);
+  --sidebar-accent-foreground: oklch(0.21 0 0);
+  --sidebar-border: oklch(0.9 0.005 90);
+  --sidebar-ring: oklch(0.34 0.07 255);
 
-  --brand-navy: #0a0f2c;
-  --brand-indigo: #5c6bc0;
-  --brand-amber: #ffb703;
-  --gradient-hero: radial-gradient(circle at 20% 20%, oklch(0.35 0.15 275 / 0.5), transparent 50%),
-                   radial-gradient(circle at 80% 60%, oklch(0.45 0.18 280 / 0.4), transparent 55%),
-                   linear-gradient(135deg, #0a0f2c 0%, #161c47 100%);
-  --shadow-glow: 0 20px 60px -20px oklch(0.62 0.16 275 / 0.5);
-  --shadow-amber: 0 12px 40px -12px oklch(0.82 0.16 80 / 0.55);
-}
-
-.light {
-  --background: oklch(0.99 0.005 260);
-  --foreground: oklch(0.18 0.04 270);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.04 270);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.04 270);
-  --primary: oklch(0.5 0.15 275);
-  --primary-foreground: oklch(0.99 0.005 260);
-  --secondary: oklch(0.95 0.01 260);
-  --secondary-foreground: oklch(0.2 0.04 270);
-  --muted: oklch(0.95 0.01 260);
-  --muted-foreground: oklch(0.45 0.03 260);
-  --accent: oklch(0.78 0.16 80);
-  --accent-foreground: oklch(0.18 0.04 270);
-  --border: oklch(0.9 0.01 260);
-  --input: oklch(0.9 0.01 260);
-  --sidebar: oklch(0.97 0.01 260);
-  --sidebar-foreground: oklch(0.18 0.04 270);
-  --sidebar-border: oklch(0.9 0.01 260);
+  /* kept so old class names don't break; effects are neutralised */
+  --gradient-hero: none;
+  --shadow-glow: none;
+  --shadow-amber: none;
 }
 
 @layer base {
@@ -137,57 +99,31 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+     font-family: 'Inter Variable', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Source Serif 4 Variable', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
   }
 }
 
-@keyframes mesh-float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -30px) scale(1.05); }
-  66% { transform: translate(-20px, 20px) scale(0.95); }
-}
-@keyframes pulse-soft {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
-}
-@keyframes slide-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes pop {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.3); }
-  100% { transform: scale(1); }
-}
+/* Old effect classes, neutralised. Delete these once the pages that use them are cleaned up. */
+.animate-mesh,
+.animate-pulse-soft,
+.animate-slide-up,
+.animate-pop,
+.animate-float-slow { animation: none; }
 
-.animate-mesh { animation: mesh-float 18s ease-in-out infinite; }
-.animate-pulse-soft { animation: pulse-soft 2.4s ease-in-out infinite; }
-.animate-slide-up { animation: slide-up 0.5s ease-out both; }
-.animate-pop { animation: pop 0.4s ease-out; }
+.bg-hero-mesh { background: none; }
+.shadow-glow,
+.shadow-amber { box-shadow: none; }
 
-.bg-hero-mesh { background: var(--gradient-hero); }
-.shadow-glow { box-shadow: var(--shadow-glow); }
-.shadow-amber { box-shadow: var(--shadow-amber); }
-
-.card-lift { transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
-.card-lift:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -18px rgba(0,0,0,0.5); border-color: var(--color-primary); }
+.card-lift { transition: border-color 0.15s ease; }
+.card-lift:hover { border-color: var(--color-primary); }
 
 ::-webkit-scrollbar { height: 8px; width: 8px; }
-::-webkit-scrollbar-thumb { background: oklch(1 0 0 / 0.12); border-radius: 8px; }
-::-webkit-scrollbar-thumb:hover { background: oklch(1 0 0 / 0.2); }
-
-
-/* ============================================================
-   APPEND this to your existing src/styles.css
-   (anywhere after the other @keyframes blocks)
-   ============================================================ */
-
-@keyframes float-slow {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-16px); }
-}
-
-.animate-float-slow {
-  animation: float-slow 9s ease-in-out infinite;
-}
+::-webkit-scrollbar-thumb { background: oklch(0 0 0 / 0.15); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: oklch(0 0 0 / 0.25); }

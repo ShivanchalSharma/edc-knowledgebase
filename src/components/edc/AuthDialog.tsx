@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -34,7 +40,9 @@ export function AuthDialog({ open, onOpenChange, mode, onSwitchMode }: Props) {
     if (!email || !password) return setError("Email and password required");
 
     if (mode === "signin") {
-      setError("We couldn't find an account with that email. Create one to get started — it only takes a moment.");
+      setError(
+        "We couldn't find an account with that email. Create one to get started — it only takes a moment.",
+      );
       return;
     }
 
@@ -51,7 +59,9 @@ export function AuthDialog({ open, onOpenChange, mode, onSwitchMode }: Props) {
 
   const google = () => {
     if (mode === "signin") {
-      setError("We couldn't find an account with that email. Create one to get started — it only takes a moment.");
+      setError(
+        "We couldn't find an account with that email. Create one to get started — it only takes a moment.",
+      );
       return;
     }
     setUser({ name: "Founder", email: "founder@iitd.ac.in" });
@@ -80,16 +90,25 @@ export function AuthDialog({ open, onOpenChange, mode, onSwitchMode }: Props) {
             {mode === "signup" ? "Create your account" : "Welcome back"}
           </DialogTitle>
           <DialogDescription>
-            {mode === "signup" ? "Join the founder community." : "Sign in to your PragyanBuild account."}
+            {mode === "signup" ? "Join the founder community." : "Sign in to your eDC account."}
           </DialogDescription>
         </DialogHeader>
         <Button variant="outline" onClick={google} className="w-full">
-          <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24"><path fill="currentColor" d="M21.35 11.1h-9.17v2.93h5.26c-.5 2.4-2.5 3.78-5.26 3.78a5.81 5.81 0 1 1 0-11.6c1.45 0 2.77.51 3.8 1.36l2.18-2.18A8.9 8.9 0 0 0 12.18 3a9 9 0 1 0 0 18c4.7 0 9-3.4 9-9 0-.6-.07-1.18-.18-1.9z"/></svg>
+          <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              d="M21.35 11.1h-9.17v2.93h5.26c-.5 2.4-2.5 3.78-5.26 3.78a5.81 5.81 0 1 1 0-11.6c1.45 0 2.77.51 3.8 1.36l2.18-2.18A8.9 8.9 0 0 0 12.18 3a9 9 0 1 0 0 18c4.7 0 9-3.4 9-9 0-.6-.07-1.18-.18-1.9z"
+            />
+          </svg>
           Continue with Google
         </Button>
         <div className="relative my-2">
-          <div className="absolute inset-0 flex items-center"><span className="w-full border-t border-border" /></div>
-          <div className="relative flex justify-center text-xs uppercase"><span className="bg-card px-2 text-muted-foreground">or</span></div>
+          <div className="absolute inset-0 flex items-center">
+            <span className="w-full border-t border-border" />
+          </div>
+          <div className="relative flex justify-center text-xs uppercase">
+            <span className="bg-card px-2 text-muted-foreground">or</span>
+          </div>
         </div>
         <form onSubmit={submit} className="space-y-3">
           {mode === "signup" && (
@@ -97,7 +116,13 @@ export function AuthDialog({ open, onOpenChange, mode, onSwitchMode }: Props) {
               <Label htmlFor="name">Name</Label>
               <div className="relative">
                 <UserIcon className="absolute left-3 top-2.5 w-4 h-4 text-muted-foreground" />
-                <Input id="name" value={name} onChange={e => setName(e.target.value)} className="pl-9" placeholder="Aarav Sharma" />
+                <Input
+                  id="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="pl-9"
+                  placeholder="Aarav Sharma"
+                />
               </div>
             </div>
           )}
@@ -105,18 +130,34 @@ export function AuthDialog({ open, onOpenChange, mode, onSwitchMode }: Props) {
             <Label htmlFor="email">Email</Label>
             <div className="relative">
               <Mail className="absolute left-3 top-2.5 w-4 h-4 text-muted-foreground" />
-              <Input id="email" type="email" value={email} onChange={e => setEmail(e.target.value)} className="pl-9" placeholder="you@example.com" />
+              <Input
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="pl-9"
+                placeholder="you@example.com"
+              />
             </div>
           </div>
           <div>
             <Label htmlFor="password">Password</Label>
             <div className="relative">
               <Lock className="absolute left-3 top-2.5 w-4 h-4 text-muted-foreground" />
-              <Input id="password" type="password" value={password} onChange={e => setPassword(e.target.value)} className="pl-9" placeholder="••••••••" />
+              <Input
+                id="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="pl-9"
+                placeholder="••••••••"
+              />
             </div>
           </div>
           {mode === "signin" && (
-            <a href="#" className="text-xs text-primary hover:underline">Forgot password?</a>
+            <a href="#" className="text-xs text-primary hover:underline">
+              Forgot password?
+            </a>
           )}
           {error && (
             <div className="rounded-lg border border-accent/30 bg-accent/[0.06] p-3 space-y-2">
@@ -142,13 +183,19 @@ export function AuthDialog({ open, onOpenChange, mode, onSwitchMode }: Props) {
               <Sparkles className="w-4 h-4 mr-2 text-accent" /> Continue with Demo Account
             </Button>
           )}
-          <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
+          <Button
+            type="submit"
+            className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
+          >
             {mode === "signup" ? "Create account" : "Sign in"}
           </Button>
         </form>
         <p className="text-center text-sm text-muted-foreground">
-          {mode === "signup" ? "Already have an account? " : "New to PragyanBuild? "}
-          <button onClick={() => onSwitchMode?.(mode === "signup" ? "signin" : "signup")} className="text-primary hover:underline">
+          {mode === "signup" ? "Already have an account? " : "New to eDC? "}
+          <button
+            onClick={() => onSwitchMode?.(mode === "signup" ? "signin" : "signup")}
+            className="text-primary hover:underline"
+          >
             {mode === "signup" ? "Sign in" : "Create one"}
           </button>
         </p>

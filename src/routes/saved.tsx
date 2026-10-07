@@ -1,8 +1,8 @@
 import { createFileRoute, Navigate, Link } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { AppShell } from "@/components/edc/AppShell";
-import { NeuralBackground } from "@/components/edc/NeuralBackground";
-import { ScrollReveal } from "@/components/edc/ScrollReveal";
+// import { NeuralBackground } from "@/components/edc/NeuralBackground";
+// import { ScrollReveal } from "@/components/edc/ScrollReveal";
 import { useSaved, useUser } from "@/lib/edc/store";
 import { getSavedResources, type ResourceSource } from "@/lib/edc/resource-registry";
 import { Bookmark, ExternalLink, ArrowRight, Layers } from "lucide-react";
@@ -38,7 +38,7 @@ function Saved() {
 
         {/* Hero */}
         <section className="relative overflow-hidden rounded-3xl border border-border bg-card p-6 md:p-8">
-          <NeuralBackground className="opacity-50" />
+          {/* <NeuralBackground className="opacity-50" /> */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-accent/10 pointer-events-none" />
           <div className="relative z-10">
             <div className="flex items-center gap-2 mb-1.5">
@@ -59,7 +59,7 @@ function Saved() {
         </section>
 
         {items.length === 0 ? (
-          <ScrollReveal>
+          // <ScrollReveal>
             <div className="flex flex-col items-center justify-center text-center py-20 rounded-3xl border border-dashed border-border bg-card/40">
               <Bookmark className="w-10 h-10 text-muted-foreground mx-auto mb-4" />
               <h3 className="font-bold mb-1.5">Nothing saved yet</h3>
@@ -74,9 +74,9 @@ function Saved() {
                 <Link to="/raise" className="text-xs font-semibold text-accent hover:underline">Raise</Link>
               </div>
             </div>
-          </ScrollReveal>
+          // </ScrollReveal>
         ) : (
-          <ScrollReveal>
+          // <ScrollReveal>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {items.map(item => (
                 <div key={item.id} className="card-lift bg-card border border-border rounded-2xl p-5 flex flex-col gap-3 h-full">
@@ -106,7 +106,7 @@ function Saved() {
                 </div>
               ))}
             </div>
-          </ScrollReveal>
+          // </ScrollReveal>
         )}
 
       </div>
