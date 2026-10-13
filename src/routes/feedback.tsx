@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { MessageSquare, Send, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/feedback")({
-  head: () => ({ meta: [{ title: "Feedback — eDC KnowledgeHub" }] }),
+  head: () => ({ meta: [{ title: "Feedback — eDC Knowledge Base" }] }),
   component: FeedbackPage,
 });
 
@@ -34,7 +34,7 @@ function FeedbackPage() {
 
   const handleSubmit = () => {
     if (!topic || !subject.trim() || !message.trim()) return;
-    
+
     // Simulate API call
     console.log("Feedback Submitted:", { topic, subject, message });
     setSubmitted(true);
@@ -46,12 +46,11 @@ function FeedbackPage() {
   return (
     <AppShell>
       <div className="max-w-4xl mx-auto px-4 md:px-8 py-8 space-y-8">
-        
         {/* ── Hero Container ── */}
         <section className="relative overflow-hidden rounded-3xl border border-border bg-card p-6 md:p-8">
           {/* <NeuralBackground className="opacity-50" /> */}
           <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/15 via-transparent to-accent/15 pointer-events-none" />
-          
+
           <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
@@ -61,7 +60,8 @@ function FeedbackPage() {
                 <h1 className="text-3xl font-bold">Feedback</h1>
               </div>
               <p className="text-sm text-muted-foreground max-w-xl">
-                Help us improve the KnowledgeHub. Share your questions, feature requests, grievances, or bug reports directly with the team.
+                Help us improve the Knowledge Base. Share your questions, feature requests,
+                grievances, or bug reports directly with the team.
               </p>
             </div>
           </div>
@@ -76,7 +76,8 @@ function FeedbackPage() {
               </div>
               <h2 className="text-xl font-bold mb-2">Message received!</h2>
               <p className="text-sm text-muted-foreground max-w-sm">
-                Thanks for taking the time to share your thoughts. We read every piece of feedback to make the platform better.
+                Thanks for taking the time to share your thoughts. We read every piece of feedback
+                to make the platform better.
               </p>
             </div>
           ) : (
@@ -91,7 +92,9 @@ function FeedbackPage() {
                   onChange={(e) => setTopic(e.target.value)}
                   className="flex h-10 w-full mt-2 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 appearance-none"
                 >
-                  <option value="" disabled>Select a topic...</option>
+                  <option value="" disabled>
+                    Select a topic...
+                  </option>
                   <option value="General Query">General Query</option>
                   <option value="Bug Report">Bug Report</option>
                   <option value="Feature Request">Feature Request</option>
@@ -105,20 +108,20 @@ function FeedbackPage() {
                 <Label htmlFor="subject" className="text-sm font-semibold">
                   Subject <span className="text-destructive">*</span>
                 </Label>
-                <Input 
+                <Input
                   id="subject"
-                  placeholder="Brief summary of your feedback..." 
+                  placeholder="Brief summary of your feedback..."
                   className="mt-2"
                   value={subject}
                   onChange={(e) => setSubject(e.target.value)}
                 />
               </div>
-              
+
               <div>
                 <Label htmlFor="message" className="text-sm font-semibold">
                   Message <span className="text-destructive">*</span>
                 </Label>
-                <textarea 
+                <textarea
                   id="message"
                   className="flex min-h-[160px] w-full mt-2 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                   placeholder="What's on your mind? The more details, the better..."
@@ -128,8 +131,8 @@ function FeedbackPage() {
               </div>
 
               <div className="pt-2">
-                <Button 
-                  onClick={handleSubmit} 
+                <Button
+                  onClick={handleSubmit}
                   disabled={!isFormValid}
                   className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold flex items-center gap-2"
                 >
@@ -139,7 +142,6 @@ function FeedbackPage() {
             </div>
           )}
         </section>
-
       </div>
     </AppShell>
   );

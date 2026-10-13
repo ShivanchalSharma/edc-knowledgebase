@@ -12,7 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ActivityFeedRouteImport } from './routes/ActivityFeed'
 import { Route as AboutRouteImport } from './routes/about'
-import { Route as AiRouteImport } from './routes/ai'
 import { Route as BuildRouteImport } from './routes/build'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CookiesRouteImport } from './routes/cookies'
@@ -38,11 +37,6 @@ const ActivityFeedRoute = ActivityFeedRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AiRoute = AiRouteImport.update({
-  id: '/ai',
-  path: '/ai',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BuildRoute = BuildRouteImport.update({
@@ -105,7 +99,6 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/ActivityFeed': typeof ActivityFeedRoute
   '/about': typeof AboutRoute
-  '/ai': typeof AiRoute
   '/build': typeof BuildRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
@@ -122,7 +115,6 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/ActivityFeed': typeof ActivityFeedRoute
   '/about': typeof AboutRoute
-  '/ai': typeof AiRoute
   '/build': typeof BuildRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
@@ -140,7 +132,6 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/ActivityFeed': typeof ActivityFeedRoute
   '/about': typeof AboutRoute
-  '/ai': typeof AiRoute
   '/build': typeof BuildRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
@@ -159,7 +150,6 @@ export interface FileRouteTypes {
     | '/'
     | '/ActivityFeed'
     | '/about'
-    | '/ai'
     | '/build'
     | '/contact'
     | '/cookies'
@@ -176,7 +166,6 @@ export interface FileRouteTypes {
     | '/'
     | '/ActivityFeed'
     | '/about'
-    | '/ai'
     | '/build'
     | '/contact'
     | '/cookies'
@@ -193,7 +182,6 @@ export interface FileRouteTypes {
     | '/'
     | '/ActivityFeed'
     | '/about'
-    | '/ai'
     | '/build'
     | '/contact'
     | '/cookies'
@@ -211,7 +199,6 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ActivityFeedRoute: typeof ActivityFeedRoute
   AboutRoute: typeof AboutRoute
-  AiRoute: typeof AiRoute
   BuildRoute: typeof BuildRoute
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
@@ -246,13 +233,6 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ai': {
-      id: '/ai'
-      path: '/ai'
-      fullPath: '/ai'
-      preLoaderRoute: typeof AiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/build': {
@@ -339,7 +319,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ActivityFeedRoute: ActivityFeedRoute,
   AboutRoute: AboutRoute,
-  AiRoute: AiRoute,
   BuildRoute: BuildRoute,
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,

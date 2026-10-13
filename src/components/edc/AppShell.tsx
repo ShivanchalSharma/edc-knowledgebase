@@ -55,12 +55,12 @@ const navGroups: NavGroup[] = [
         icon: TrendingUp,
         color: "text-emerald-400 group-hover:text-emerald-300",
       },
-      {
-        to: "/ai",
-        label: "AI Advisor",
-        icon: Sparkles,
-        color: "text-amber-400 group-hover:text-amber-300",
-      },
+      // {
+      //   to: "/ai",
+      //   label: "AI Advisor",
+      //   icon: Sparkles,
+      //   color: "text-amber-400 group-hover:text-amber-300",
+      // },
     ],
   },
 
@@ -265,7 +265,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         {[
           { to: "/dashboard", label: "Home", icon: Home },
           { to: "/tracker", label: "Tracker", icon: CheckSquare },
-          { to: "/ai", label: "AI", icon: Sparkles },
+          // { to: "/ai", label: "AI", icon: Sparkles },
           { to: "/activityfeed", label: "Community Pulse", icon: Activity },
           { to: "/settings", label: "Profile", icon: SettingsIcon },
         ].map((i) => (

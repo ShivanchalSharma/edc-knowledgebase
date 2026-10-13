@@ -9,7 +9,7 @@ import { useUser, useTheme } from "@/lib/edc/store";
 import { useState, useEffect } from "react";
 
 export const Route = createFileRoute("/settings")({
-  head: () => ({ meta: [{ title: "Settings — eDC KnowledgeHub" }] }),
+  head: () => ({ meta: [{ title: "Settings — eDC Knowledge Base" }] }),
   component: SettingsPage,
 });
 
@@ -72,14 +72,25 @@ function SettingsPage() {
             className="mt-6 space-y-4 bg-card border border-border rounded-xl p-6"
           >
             <div>
-              <Label>Name <span className="text-destructive">*</span></Label>
+              <Label>
+                Name <span className="text-destructive">*</span>
+              </Label>
               <Input value={name} onChange={(e) => setName(e.target.value)} />
               {!nameValid && <p className="text-xs text-destructive mt-1">Name is required.</p>}
             </div>
             <div>
-              <Label>Email <span className="text-destructive">*</span></Label>
-              <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" />
-              {!emailValid && <p className="text-xs text-destructive mt-1">Enter a valid email address.</p>}
+              <Label>
+                Email <span className="text-destructive">*</span>
+              </Label>
+              <Input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="you@example.com"
+              />
+              {!emailValid && (
+                <p className="text-xs text-destructive mt-1">Enter a valid email address.</p>
+              )}
             </div>
             <div>
               <Label>College / School / Organization</Label>
@@ -90,13 +101,18 @@ function SettingsPage() {
               />
             </div>
             <div>
-              <Label>What are you building? <span className="text-muted-foreground font-normal">(one-liner)</span></Label>
+              <Label>
+                What are you building?{" "}
+                <span className="text-muted-foreground font-normal">(one-liner)</span>
+              </Label>
               <Input
                 value={pitch}
                 onChange={(e) => setPitch(e.target.value)}
                 placeholder="e.g. AI-powered inventory tool for D2C brands"
               />
-              <p className="text-xs text-muted-foreground mt-1">Shown to mentors when you request a session, and used to personalize your dashboard.</p>
+              <p className="text-xs text-muted-foreground mt-1">
+                Shown to mentors when you request a session, and used to personalize your dashboard.
+              </p>
             </div>
             <div>
               <Label>LinkedIn / Portfolio</Label>
@@ -105,7 +121,9 @@ function SettingsPage() {
                 onChange={(e) => setLink(e.target.value)}
                 placeholder="https://..."
               />
-              <p className="text-xs text-muted-foreground mt-1">Included with mentor session requests so they know who's reaching out.</p>
+              <p className="text-xs text-muted-foreground mt-1">
+                Included with mentor session requests so they know who's reaching out.
+              </p>
             </div>
             <div className="flex items-center justify-between pt-2">
               <div>

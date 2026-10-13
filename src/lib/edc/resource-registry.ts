@@ -5,12 +5,12 @@
 // this registry is what turns those ids back into renderable cards.
 
 import {
-  BookOpen, GraduationCap, LineChart, Trophy, Wrench, Handshake,
-  Landmark, FileText, Banknote, Rocket, BarChart3, AlarmClock, type LucideIcon,
+  BookOpen, GraduationCap, Rss, Trophy, Wrench,
+  Landmark, FileText, Rocket, AlarmClock, type LucideIcon,
 } from "lucide-react";
 import {
   whatsNew, pickedForYou, books, courses, reports,
-  competitions, facilities, connects, funders, pitchResources,
+  competitions, funders, pitchResources,
 } from "@/lib/edc/data";
 
 export type ResourceSource = "home" | "discover" | "build" | "raise";
@@ -61,8 +61,8 @@ export const RESOURCE_REGISTRY: RegistryItem[] = [
     source: "discover" as const, sourceHref: "/discover",
   })),
   ...reports.map(r => ({
-    id: r.id, title: r.title, sub: r.year,
-    kind: "Report", Icon: LineChart, tile: TILE.emerald,
+    id: r.id, title: r.title, sub: r.desc,
+    kind: "Newsletter / Podcast", Icon: Rss, tile: TILE.emerald,
     source: "discover" as const, sourceHref: "/discover",
   })),
 
@@ -70,16 +70,6 @@ export const RESOURCE_REGISTRY: RegistryItem[] = [
   ...competitions.map(c => ({
     id: c.id, title: c.title, sub: c.prize, footer: `${c.deadline} days left`,
     kind: "Competition", Icon: Trophy, tile: TILE.accent,
-    source: "build" as const, sourceHref: "/build",
-  })),
-  ...facilities.map(f => ({
-    id: f.id, title: f.title, sub: f.desc,
-    kind: "Facility", Icon: Wrench, tile: TILE.sky,
-    source: "build" as const, sourceHref: "/build",
-  })),
-  ...connects.map(c => ({
-    id: c.id, title: c.title, sub: c.desc,
-    kind: "Connect", Icon: Handshake, tile: TILE.emerald,
     source: "build" as const, sourceHref: "/build",
   })),
 
@@ -90,7 +80,7 @@ export const RESOURCE_REGISTRY: RegistryItem[] = [
     source: "raise" as const, sourceHref: "/raise",
   })),
   ...pitchResources.map(p => ({
-    id: p.id, title: p.title, sub: "Free download",
+    id: p.id, title: p.title, sub: p.desc,
     kind: "Pitch resource", Icon: FileText, tile: TILE.primary,
     source: "raise" as const, sourceHref: "/raise",
   })),
